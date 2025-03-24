@@ -1,0 +1,16 @@
+{
+  "os":  "Windows-11-10.0.26100-SP0",
+  "python":  "CPython 3.13.2",
+  "startedAt":  "2025-03-19T11:27:50.335892Z",
+  "program":  "d:\\Uncertainity Analysis-Ferhat\\week5\\example.py",
+  "codePath":  "example.py",
+  "git":  {
+    "remote":  "https://github.com/Ainaz-Rafiei/TiTan-UNC-.git",
+    "commit":  "688b54af9a859e86f2b7dc319d48cc674c41c6d5"
+  },
+  "email":  "aynazrafiei2001sm@gmail.com",
+  "root":  "D:\\Uncertainity Analysis-Ferhat\\week5",
+  "host":  "Ainaz",
+  "executable":  "C:\\Users\\aynaz\\AppData\\Local\\Programs\\Python\\Python313\\python.exe",
+  "codePathLocal":  "example.py"
+}

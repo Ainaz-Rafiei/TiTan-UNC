@@ -1,0 +1,15 @@
+{"time":"2025-03-24T09:03:30.5663296+01:00","level":"INFO","msg":"stream: starting","core version":"0.19.8","symlink path":"D:\\Uncertainity Analysis-Ferhat\\week5\\wandb\\run-20250324_090330-iukkjxpd\\logs\\debug-core.log"}
+{"time":"2025-03-24T09:03:32.3857742+01:00","level":"INFO","msg":"created new stream","id":"iukkjxpd"}
+{"time":"2025-03-24T09:03:32.3857742+01:00","level":"INFO","msg":"stream: started","id":"iukkjxpd"}
+{"time":"2025-03-24T09:03:32.3857742+01:00","level":"INFO","msg":"writer: Do: started","stream_id":"iukkjxpd"}
+{"time":"2025-03-24T09:03:32.3863928+01:00","level":"INFO","msg":"sender: started","stream_id":"iukkjxpd"}
+{"time":"2025-03-24T09:03:32.3863928+01:00","level":"INFO","msg":"handler: started","stream_id":"iukkjxpd"}
+{"time":"2025-03-24T09:03:32.7095876+01:00","level":"INFO","msg":"Starting system monitor"}
+{"time":"2025-03-24T09:04:10.1749285+01:00","level":"INFO","msg":"stream: closing","id":"iukkjxpd"}
+{"time":"2025-03-24T09:04:10.1749285+01:00","level":"INFO","msg":"Stopping system monitor"}
+{"time":"2025-03-24T09:04:10.1754345+01:00","level":"INFO","msg":"Stopped system monitor"}
+{"time":"2025-03-24T09:04:10.84125+01:00","level":"INFO","msg":"fileTransfer: Close: file transfer manager closed"}
+{"time":"2025-03-24T09:04:11.1031429+01:00","level":"INFO","msg":"handler: closed","stream_id":"iukkjxpd"}
+{"time":"2025-03-24T09:04:11.1031429+01:00","level":"INFO","msg":"writer: Close: closed","stream_id":"iukkjxpd"}
+{"time":"2025-03-24T09:04:11.1031429+01:00","level":"INFO","msg":"sender: closed","stream_id":"iukkjxpd"}
+{"time":"2025-03-24T09:04:11.1031429+01:00","level":"INFO","msg":"stream: closed","id":"iukkjxpd"}

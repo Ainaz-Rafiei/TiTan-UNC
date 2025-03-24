@@ -1,0 +1,35 @@
+0.21.0+cpu
+
+    _|    _|  _|    _|    _|_|_|    _|_|_|  _|_|_|  _|      _|    _|_|_|      _|_|_|_|    _|_|      _|_|_|  _|_|_|_|
+    _|    _|  _|    _|  _|        _|          _|    _|_|    _|  _|            _|        _|    _|  _|        _|
+    _|_|_|_|  _|    _|  _|  _|_|  _|  _|_|    _|    _|  _|  _|  _|  _|_|      _|_|_|    _|_|_|_|  _|        _|_|_|
+    _|    _|  _|    _|  _|    _|  _|    _|    _|    _|    _|_|  _|    _|      _|        _|    _|  _|        _|
+    _|    _|    _|_|      _|_|_|    _|_|_|  _|_|_|  _|      _|    _|_|_|      _|        _|    _|    _|_|_|  _|_|_|_|
+D:\Uncertainity Analysis-Ferhat\week5\titan.py:153: UserWarning: No data for colormapping provided via 'c'. Parameters 'cmap' will be ignored
+  sc = ax.scatter(x_coords, y_coords, cmap='viridis', s=1)  # Small dot size for high resolution
+
+File contents:
+annots (1, 3190, 1)
+annots_patching (3190, 1)
+coords (1, 3190, 2)
+coords_patching (3190, 2)
+features (1, 3190, 768)
+mask (800, 826, 3)
+stitch (800, 826, 3)
+2.2.4
+Stitch Shape torch.Size([800, 826, 3])
+Mask Shape torch.Size([800, 826, 3])
+Annotaion torch.Size([1, 3190, 1])
+Annotaion Patching Shape torch.Size([3190, 1])
+Feature Shape torch.Size([1, 3190, 768])
+Coords Shape torch.Size([1, 3190, 2])
+Coords Patching Shape torch.Size([3190, 2])
+C:\Users\aynaz\.cache\huggingface\hub\models--MahmoodLab--TITAN\snapshots\b2fb4f475256eb67c6e9ccbf2d6c9c3f25f20791\TCGA_demo_features\TCGA-PC-A5DK-01Z-00-DX1.C2D3BC09-411F-46CF-811B-FDBA7C2A295B.h5
+C:\Users\aynaz\miniconda3\Lib\site-packages\torch\amp\autocast_mode.py:266: UserWarning: User provided device_type of 'cuda', but CUDA is not available. Disabling
+  warnings.warn(
+Traceback (most recent call last):
+  File "D:\Uncertainity Analysis-Ferhat\week5\titan.py", line 260, in <module>
+    with open('/content/TITAN/datasets/config_tcga-ot.yaml', 'r') as file:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: '/content/TITAN/datasets/config_tcga-ot.yaml'
+[0m

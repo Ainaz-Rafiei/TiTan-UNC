@@ -1,0 +1,15 @@
+{"time":"2025-03-24T09:30:44.005941+01:00","level":"INFO","msg":"stream: starting","core version":"0.19.8","symlink path":"D:\\Uncertainity Analysis-Ferhat\\week5\\wandb\\run-20250324_093043-kx4u110i\\logs\\debug-core.log"}
+{"time":"2025-03-24T09:30:45.8229029+01:00","level":"INFO","msg":"created new stream","id":"kx4u110i"}
+{"time":"2025-03-24T09:30:45.8229029+01:00","level":"INFO","msg":"stream: started","id":"kx4u110i"}
+{"time":"2025-03-24T09:30:45.8229029+01:00","level":"INFO","msg":"writer: Do: started","stream_id":"kx4u110i"}
+{"time":"2025-03-24T09:30:45.8229029+01:00","level":"INFO","msg":"sender: started","stream_id":"kx4u110i"}
+{"time":"2025-03-24T09:30:45.8229029+01:00","level":"INFO","msg":"handler: started","stream_id":"kx4u110i"}
+{"time":"2025-03-24T09:30:46.2691731+01:00","level":"INFO","msg":"Starting system monitor"}
+{"time":"2025-03-24T09:31:06.4129803+01:00","level":"INFO","msg":"stream: closing","id":"kx4u110i"}
+{"time":"2025-03-24T09:31:06.4129803+01:00","level":"INFO","msg":"Stopping system monitor"}
+{"time":"2025-03-24T09:31:06.4140335+01:00","level":"INFO","msg":"Stopped system monitor"}
+{"time":"2025-03-24T09:31:07.1048918+01:00","level":"INFO","msg":"fileTransfer: Close: file transfer manager closed"}
+{"time":"2025-03-24T09:31:07.3905362+01:00","level":"INFO","msg":"handler: closed","stream_id":"kx4u110i"}
+{"time":"2025-03-24T09:31:07.3905362+01:00","level":"INFO","msg":"writer: Close: closed","stream_id":"kx4u110i"}
+{"time":"2025-03-24T09:31:07.3905362+01:00","level":"INFO","msg":"sender: closed","stream_id":"kx4u110i"}
+{"time":"2025-03-24T09:31:07.3910699+01:00","level":"INFO","msg":"stream: closed","id":"kx4u110i"}

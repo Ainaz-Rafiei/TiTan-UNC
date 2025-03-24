@@ -1,3 +1,19 @@
+import wandb
+
+# Initialize W&B
+wandb.init(
+    project="TITAN_Project",  # Change to your project name
+    name="Titan_Run1",        # Change to a unique run name
+    config={
+        "model": "TITAN",
+        "dataset": "TCGA",
+        "epochs": 10,  # Update if training
+        "batch_size": 32,
+    }
+)
+
+
+
 import numpy
 import torch
 import transformers
@@ -12,7 +28,6 @@ os.environ["PATH"] = "/usr/local/miniconda/bin:" + os.environ["PATH"]
 import torchvision
 print(torchvision.__version__)
 
-HF_TOKEN='token'
 #!pip install huggingface_hub
 
 from huggingface_hub import login
@@ -48,7 +63,7 @@ import pandas as pd
 import torch
 from transformers import AutoModel
 
-from titan.utils import get_eval_metrics, TEMPLATES, bootstrap
+from TITAN.titan.utils import get_eval_metrics, TEMPLATES, bootstrap
 
 os.environ["OMP_NUM_THREADS"] = "8"
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
@@ -196,9 +211,7 @@ with h5py.File(demo_h5_path, 'r') as file:
    # for attr in attribute.attrs:
    #     print(f"{attr}: {attribute.attrs[attr]}")
 
-print(demo_h5_path)
 
-plt.imshow(stitch)
 
 import numpy
 print(numpy.__version__)
@@ -231,6 +244,9 @@ print("Coords Shape",coords.shape)
 print("Coords Patching Shape",coords_patching.shape)
 
 """Converts patch features into a slide-level embedding.( slide_embedding is a dynamic output)"""
+print(demo_h5_path)
+
+plt.imshow(stitch)
 
 with torch.autocast('cuda', torch.float16), torch.inference_mode():
     features = features.to(device)
@@ -241,7 +257,7 @@ single_slide_embedding.shape
 
 """Loads classification prompts and label mappings from a YAML config file."""
 
-with open('/content/TITAN/datasets/config_tcga-ot.yaml', 'r') as file:
+with open('./TITAN/datasets/config_tcga-ot.yaml', 'r') as file:
     task_config = yaml.load(file, Loader=yaml.FullLoader)
 print("Full YAML Content:")
 for key in task_config.keys():
@@ -263,9 +279,9 @@ print("Task :",task)
 import pandas as pd
 import yaml
 
-df = pd.read_csv("/content/tcga-reports.csv")
+df = pd.read_csv("./tcga-reports.csv")
 
-yaml_path = "/content/TITAN/datasets/config_tcga-ot.yaml"
+yaml_path = "./TITAN/datasets/config_tcga-ot.yaml"
 with open(yaml_path, "r") as file:
     task_configg = yaml.safe_load(file)
 
@@ -295,13 +311,13 @@ new_prompts = df_filtered.groupby("label_code")["prompts"].apply(list).to_dict()
 
 task_configg["prompts"] = new_prompts
 
-output_yaml_path = "/content/TITAN/datasets/config_tcga-ot-updated.yaml"
+output_yaml_path = "./config_tcga-ot-updated.yaml"
 with open(output_yaml_path, "w") as file:
     yaml.dump(task_configg, file, default_flow_style=False)
 
 print(f"Updated YAML saved at: {output_yaml_path}")
 
-with open('/content/TITAN/datasets/config_tcga-ot-updated.yaml', 'r') as file:
+with open('./config_tcga-ot-updated.yaml', 'r') as file:
     task_config = yaml.load(file, Loader=yaml.FullLoader)
 print("Full YAML Content:")
 for key in task_config.keys():
@@ -333,18 +349,26 @@ with torch.autocast('cuda', torch.float16), torch.inference_mode():
 - Confidence scores for each cancer type
 """
 
+#with torch.autocast('cuda', torch.float16), torch.inference_mode():
+#    scores = model.zero_shot(single_slide_embedding, classifier)
+#print("Predicted class:", classes[scores.argmax()])
 with torch.autocast('cuda', torch.float16), torch.inference_mode():
     scores = model.zero_shot(single_slide_embedding, classifier)
-print("Predicted class:", classes[scores.argmax()])
+    predicted_class = classes[scores.argmax()]
+    confidence = scores.max().item()
+
+print("Predicted class:", predicted_class)
+wandb.log({"predicted_class": predicted_class, "confidence": confidence})
+
 print("Normalized similarity scores:", [f"{c}: {score:.3f}" for c, score in zip(classes, scores[0][0])])
 
-train_csv = pd.read_csv('/content/TITAN/datasets/tcga-ot_train.csv')
+train_csv = pd.read_csv('./TITAN/datasets/tcga-ot_train.csv')
 slide_id = train_csv['slide_id'][:]
 print("slide_id:",len(slide_id))
-val_csv = pd.read_csv('/content/TITAN/datasets/tcga-ot_val.csv')
+val_csv = pd.read_csv('./TITAN/datasets/tcga-ot_val.csv')
 slide_id = val_csv['slide_id'][:]
 print("slide_id:",len(slide_id))
-task_csv = pd.read_csv('/content/TITAN/datasets/tcga-ot_test.csv')
+task_csv = pd.read_csv('./TITAN/datasets/tcga-ot_test.csv')
 slide_id = task_csv['slide_id'][:]
 print("slide_id:",len(slide_id))
 #sum = 11186
@@ -379,10 +403,18 @@ print("slide_embeddings shape",slide_embeddings.shape)
 probs = []
 targets = []
 
-for slide_emb, slide_id in tqdm(zip(slide_embeddings, slide_names), total=len(slide_embeddings)):
+#for slide_emb, slide_id in tqdm(zip(slide_embeddings, slide_names), total=len(slide_embeddings)):
+#    with torch.autocast('cuda', torch.float16), torch.inference_mode():
+#        slide_emb = slide_emb.to(device)
+#        probs.append(model.zero_shot(slide_emb, classifier).cpu())
+for i, (slide_emb, slide_id) in enumerate(tqdm(zip(slide_embeddings, slide_names), total=len(slide_embeddings))):
     with torch.autocast('cuda', torch.float16), torch.inference_mode():
         slide_emb = slide_emb.to(device)
         probs.append(model.zero_shot(slide_emb, classifier).cpu())
+
+    # Log progress every 10 slides
+    if i % 10 == 0:
+        wandb.log({"processed_slides": i})
 
         # Use the correct column, e.g., 'OncoTreeCode'
         target_value = task_csv[task_csv['slide_id'] == slide_id]['OncoTreeCode'].values[0]
@@ -459,9 +491,14 @@ print("Uncertainty per class:\n", uncertainty)
 - Aucroc: Measures how well the model distinguishes between different classes
 """
 
+#results = get_eval_metrics(targets_all, preds_all, probs_all, roc_kwargs={'multi_class': 'ovo', 'average': 'macro'})
+#for key, value in results.items():
+#    print(f"{key.split('/')[-1]: <12}: {value:.3f}")
+# Log evaluation metrics to W&B
 results = get_eval_metrics(targets_all, preds_all, probs_all, roc_kwargs={'multi_class': 'ovo', 'average': 'macro'})
 for key, value in results.items():
     print(f"{key.split('/')[-1]: <12}: {value:.3f}")
+    wandb.log({key.split('/')[-1]: value})  # Log each metric to W&B
 
 """Bootstrap is a useful method for assessing the uncertainty in model's predictions and statistics.(estimate confidence intervals and quantify the robustness of  results without making strong assumptions)"""
 
@@ -536,7 +573,7 @@ specific_predicted_class_index = scores.argmax()
 specific_predicted_class = classes[specific_predicted_class_index]
 print(f"Full class description: {sorted_class_prompts[sorted_classes.index(specific_predicted_class)]}")
 
-yaml_path = "/content/TITAN/datasets/config_tcga-ot-updated.yaml"
+yaml_path = "/TITAN/datasets/config_tcga-ot-updated.yaml"
 with open(yaml_path, "r") as file:
     updated_task_config = yaml.safe_load(file)
 
@@ -613,3 +650,5 @@ print("Probabilities Shape:", probs_all.shape)
 print("Uncertainties Shape:", uncertainties_all.shape)
 print("Targets Shape:", targets_all.shape)
 
+torch.save(model.state_dict(), "titan_model.pth")
+wandb.save("titan_model.pth")  # Save to W&B

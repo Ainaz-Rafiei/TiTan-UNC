@@ -1,0 +1,7 @@
+2025-03-24 09:28:00,216 INFO    MainThread:8736 [wandb_init.py:setup_run_log_directory():647] Logging user logs to D:\Uncertainity Analysis-Ferhat\week5\wandb\run-20250324_092800-1ab473tl\logs\debug.log
+2025-03-24 09:28:00,216 INFO    MainThread:8736 [wandb_init.py:setup_run_log_directory():648] Logging internal logs to D:\Uncertainity Analysis-Ferhat\week5\wandb\run-20250324_092800-1ab473tl\logs\debug-internal.log
+2025-03-24 09:28:00,216 INFO    MainThread:8736 [wandb_init.py:init():761] calling init triggers
+2025-03-24 09:28:00,216 INFO    MainThread:8736 [wandb_init.py:init():766] wandb.init called with sweep_config: {}
+config: {'model': 'TITAN', 'dataset': 'TCGA', 'epochs': 10, 'batch_size': 32, '_wandb': {}}
+2025-03-24 09:28:00,216 INFO    MainThread:8736 [wandb_init.py:init():776] wandb.init() called while a run is active
+2025-03-24 09:28:07,505 INFO    MsgRouterThr:8736 [mailbox.py:close():129] Closing mailbox, abandoning 1 handles.

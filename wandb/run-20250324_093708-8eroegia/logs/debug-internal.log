@@ -1,0 +1,15 @@
+{"time":"2025-03-24T09:37:08.759276+01:00","level":"INFO","msg":"stream: starting","core version":"0.19.8","symlink path":"D:\\Uncertainity Analysis-Ferhat\\week5\\wandb\\run-20250324_093708-8eroegia\\logs\\debug-core.log"}
+{"time":"2025-03-24T09:37:10.5787557+01:00","level":"INFO","msg":"created new stream","id":"8eroegia"}
+{"time":"2025-03-24T09:37:10.5787557+01:00","level":"INFO","msg":"stream: started","id":"8eroegia"}
+{"time":"2025-03-24T09:37:10.5787557+01:00","level":"INFO","msg":"writer: Do: started","stream_id":"8eroegia"}
+{"time":"2025-03-24T09:37:10.5793311+01:00","level":"INFO","msg":"handler: started","stream_id":"8eroegia"}
+{"time":"2025-03-24T09:37:10.5793311+01:00","level":"INFO","msg":"sender: started","stream_id":"8eroegia"}
+{"time":"2025-03-24T09:37:10.9101495+01:00","level":"INFO","msg":"Starting system monitor"}
+{"time":"2025-03-24T09:37:29.3310371+01:00","level":"INFO","msg":"stream: closing","id":"8eroegia"}
+{"time":"2025-03-24T09:37:29.3310371+01:00","level":"INFO","msg":"Stopping system monitor"}
+{"time":"2025-03-24T09:37:29.3321296+01:00","level":"INFO","msg":"Stopped system monitor"}
+{"time":"2025-03-24T09:37:29.9729737+01:00","level":"INFO","msg":"fileTransfer: Close: file transfer manager closed"}
+{"time":"2025-03-24T09:37:30.2503257+01:00","level":"INFO","msg":"handler: closed","stream_id":"8eroegia"}
+{"time":"2025-03-24T09:37:30.2503257+01:00","level":"INFO","msg":"writer: Close: closed","stream_id":"8eroegia"}
+{"time":"2025-03-24T09:37:30.2503257+01:00","level":"INFO","msg":"sender: closed","stream_id":"8eroegia"}
+{"time":"2025-03-24T09:37:30.2507094+01:00","level":"INFO","msg":"stream: closed","id":"8eroegia"}

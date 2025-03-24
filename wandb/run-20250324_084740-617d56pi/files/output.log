@@ -1,0 +1,4 @@
+Traceback (most recent call last):
+  File "D:\Uncertainity Analysis-Ferhat\week5\titan.py", line 18, in <module>
+    import torch
+ModuleNotFoundError: No module named 'torch'

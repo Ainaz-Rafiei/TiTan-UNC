@@ -1,0 +1,28 @@
+0.21.0+cpu
+
+    _|    _|  _|    _|    _|_|_|    _|_|_|  _|_|_|  _|      _|    _|_|_|      _|_|_|_|    _|_|      _|_|_|  _|_|_|_|
+    _|    _|  _|    _|  _|        _|          _|    _|_|    _|  _|            _|        _|    _|  _|        _|
+    _|_|_|_|  _|    _|  _|  _|_|  _|  _|_|    _|    _|  _|  _|  _|  _|_|      _|_|_|    _|_|_|_|  _|        _|_|_|
+    _|    _|  _|    _|  _|    _|  _|    _|    _|    _|    _|_|  _|    _|      _|        _|    _|  _|        _|
+    _|    _|    _|_|      _|_|_|    _|_|_|  _|_|_|  _|      _|    _|_|_|      _|        _|    _|    _|_|_|  _|_|_|_|
+Encountered exception while importing einops: No module named 'einops'
+Traceback (most recent call last):
+  File "D:\Uncertainity Analysis-Ferhat\week5\titan.py", line 53, in <module>
+    titan = AutoModel.from_pretrained('MahmoodLab/TITAN', trust_remote_code=True)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\aynaz\miniconda3\Lib\site-packages\transformers\models\auto\auto_factory.py", line 553, in from_pretrained
+    model_class = get_class_from_dynamic_module(
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\aynaz\miniconda3\Lib\site-packages\transformers\dynamic_module_utils.py", line 540, in get_class_from_dynamic_module
+    final_module = get_cached_module_file(
+                   ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\aynaz\miniconda3\Lib\site-packages\transformers\dynamic_module_utils.py", line 403, in get_cached_module_file
+    get_cached_module_file(
+  File "C:\Users\aynaz\miniconda3\Lib\site-packages\transformers\dynamic_module_utils.py", line 365, in get_cached_module_file
+    modules_needed = check_imports(resolved_module_file)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\aynaz\miniconda3\Lib\site-packages\transformers\dynamic_module_utils.py", line 197, in check_imports
+    raise ImportError(
+ImportError: This modeling file requires the following packages that were not found in your environment: einops. Run `pip install einops`
+
+[0m

@@ -1,0 +1,50 @@
+0.21.0+cpu
+
+    _|    _|  _|    _|    _|_|_|    _|_|_|  _|_|_|  _|      _|    _|_|_|      _|_|_|_|    _|_|      _|_|_|  _|_|_|_|
+    _|    _|  _|    _|  _|        _|          _|    _|_|    _|  _|            _|        _|    _|  _|        _|
+    _|_|_|_|  _|    _|  _|  _|_|  _|  _|_|    _|    _|  _|  _|  _|  _|_|      _|_|_|    _|_|_|_|  _|        _|_|_|
+    _|    _|  _|    _|  _|    _|  _|    _|    _|    _|    _|_|  _|    _|      _|        _|    _|  _|        _|
+    _|    _|    _|_|      _|_|_|    _|_|_|  _|_|_|  _|      _|    _|_|_|      _|        _|    _|    _|_|_|  _|_|_|_|
+config.json: 100%|███████████████████████████████████████| 6.37k/6.37k [00:00<00:00, 11.1MB/s]
+C:\Users\aynaz\AppData\Local\Programs\Python\Python313\Lib\site-packages\huggingface_hub\file_download.py:142: UserWarning: `huggingface_hub` cache-system uses symlinks by default to efficiently store duplicated files but your machine does not support them in C:\Users\aynaz\.cache\huggingface\hub\models--MahmoodLab--TITAN. Caching files will still work but in a degraded version that might require more space on your disk. This warning can be disabled by setting the `HF_HUB_DISABLE_SYMLINKS_WARNING` environment variable. For more details, see https://huggingface.co/docs/huggingface_hub/how-to-cache#limitations.
+To support symlinks on Windows, you either need to activate Developer Mode or to run Python as an administrator. In order to activate developer mode, see this article: https://docs.microsoft.com/en-us/windows/apps/get-started/enable-your-device-for-development
+  warnings.warn(message)
+configuration_titan.py: 100%|████████████████████████████| 4.15k/4.15k [00:00<00:00, 8.68MB/s]
+A new version of the following files was downloaded from https://huggingface.co/MahmoodLab/TITAN:
+- configuration_titan.py
+. Make sure to double-check they do not contain any added malicious code. To avoid downloading new versions of the code file, you can pin a revision.
+modeling_titan.py: 100%|█████████████████████████████████| 3.71k/3.71k [00:00<00:00, 9.20MB/s]
+text_transformer.py: 100%|███████████████████████████████| 19.0k/19.0k [00:00<00:00, 22.7MB/s]
+Encountered exception while importing einops: No module named 'einops'
+Traceback (most recent call last):
+  File "D:\Uncertainity Analysis-Ferhat\week5\titan.py", line 53, in <module>
+    titan = AutoModel.from_pretrained('MahmoodLab/TITAN', trust_remote_code=True)
+  File "C:\Users\aynaz\AppData\Local\Programs\Python\Python313\Lib\site-packages\transformers\models\auto\auto_factory.py", line 562, in from_pretrained
+    model_class = get_class_from_dynamic_module(
+        class_ref, pretrained_model_name_or_path, code_revision=code_revision, **hub_kwargs, **kwargs
+    )
+  File "C:\Users\aynaz\AppData\Local\Programs\Python\Python313\Lib\site-packages\transformers\dynamic_module_utils.py", line 541, in get_class_from_dynamic_module
+    final_module = get_cached_module_file(
+        repo_id,
+    ...<8 lines>...
+        repo_type=repo_type,
+    )
+  File "C:\Users\aynaz\AppData\Local\Programs\Python\Python313\Lib\site-packages\transformers\dynamic_module_utils.py", line 404, in get_cached_module_file
+    get_cached_module_file(
+    ~~~~~~~~~~~~~~~~~~~~~~^
+        pretrained_model_name_or_path,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<8 lines>...
+        _commit_hash=commit_hash,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\aynaz\AppData\Local\Programs\Python\Python313\Lib\site-packages\transformers\dynamic_module_utils.py", line 366, in get_cached_module_file
+    modules_needed = check_imports(resolved_module_file)
+  File "C:\Users\aynaz\AppData\Local\Programs\Python\Python313\Lib\site-packages\transformers\dynamic_module_utils.py", line 198, in check_imports
+    raise ImportError(
+    ...<2 lines>...
+    )
+ImportError: This modeling file requires the following packages that were not found in your environment: einops. Run `pip install einops`
+
+[0m
